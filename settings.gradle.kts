@@ -40,7 +40,8 @@ include(
     ":feature_custom_rpc",
     ":feature_home",
     ":common:navigation",
-    ":feature_experimental_rpc"
+    ":feature_experimental_rpc",
+    ":feature_api"
 
 )
 rootProject.name = "Kizzy"

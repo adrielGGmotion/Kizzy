@@ -34,6 +34,7 @@ import androidx.compose.material.icons.filled.Image
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material.icons.filled.Pin
+import androidx.compose.material.icons.filled.Api
 import androidx.compose.material.icons.filled.SmartButton
 import androidx.compose.material.icons.filled.Storage
 import androidx.compose.material.icons.filled.Tune
@@ -73,7 +74,7 @@ import kotlinx.serialization.json.Json
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun RpcSettings(onBackPressed: () -> Boolean) {
+fun RpcSettings(onBackPressed: () -> Boolean, navigateToApiScreen: () -> Unit) {
     val context = LocalContext.current
     var isLowResIconsEnabled by remember { mutableStateOf(Prefs[Prefs.RPC_USE_LOW_RES_ICON, false]) }
     var useImgur by remember { mutableStateOf(Prefs[Prefs.USE_IMGUR, false]) }
@@ -195,6 +196,15 @@ fun RpcSettings(onBackPressed: () -> Boolean) {
             }
             item {
                 Subtitle(text = stringResource(id = R.string.advance_settings))
+            }
+            item {
+                SettingItem(
+                    title = "API Settings",
+                    description = "Configure the API for external applications",
+                    icon = Icons.Default.Api
+                ) {
+                    navigateToApiScreen()
+                }
             }
             item {
                 PreferenceSwitch(
