@@ -61,6 +61,7 @@ import com.my.kizzy.preference.Prefs
 import xyz.dead8309.feature_experimental_rpc.ExperimentalRpcScreen
 import xyz.dead8309.feature_experimental_rpc.ExperimentalRpcViewmodel
 import xyz.dead8309.feature_experimental_rpc.apps.ExperimentalRpcAppsScreen
+import com.my.kizzy.feature_api.ApiScreen
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalAnimationApi::class)
@@ -217,7 +218,8 @@ internal fun ComponentActivity.Kizzy(
                 }
             }
             animatedComposable(Routes.RPC_SETTINGS) {
-                RpcSettings { navController.popBackStack() }
+                RpcSettings(onBackPressed = { navController.popBackStack() },
+                    navigateToApiScreen = { navController.navigate(Routes.API) })
             }
             animatedComposable(Routes.LOGS_SCREEN) {
                 val viewModel by viewModels<LogsViewModel>()
@@ -265,6 +267,9 @@ internal fun ComponentActivity.Kizzy(
                     onBackPressed = { navController.popBackStack() },
                     viewModel = experimentalRpcViewModel.value
                 )
+            }
+            animatedComposable(Routes.API) {
+                ApiScreen()
             }
         }
     }

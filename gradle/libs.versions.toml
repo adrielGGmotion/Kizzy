@@ -19,6 +19,7 @@ compose-navigation = "2.8.3"
 core-ktx = "1.13.1"
 crashx = "v6.0.19"
 hilt = "2.51.1"
+hilt-navigation-compose = "1.0.0"
 ktor = "2.3.0"
 kotlinx-coroutine = "1.7.3"
 lifecycle-ktx = "2.8.6"
@@ -29,6 +30,7 @@ androidx-test-ext-junit = "1.2.1"
 espresso-core = "3.6.1"
 javax = "1"
 kotlinx-serialization-json = "1.6.3"
+timber = "5.0.1"
 
 [libraries]
 
@@ -65,6 +67,7 @@ accompanist-pager-indicators = { group = "com.google.accompanist", name = "accom
 # Hilt
 hilt = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
+hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt-navigation-compose" }
 
 # gradle plugins
 android-gradle-plugin = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
@@ -77,6 +80,9 @@ ktor-websockets = { module = "io.ktor:ktor-client-websockets", version.ref = "kt
 ktor-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 ktor-kotlinx-serialization = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 ktor-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
+ktor-server-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
+ktor-server-netty = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor" }
+ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation-jvm", version.ref = "ktor" }
 
 # Third-party libraries
 blankj-utilcodex = { module = "com.blankj:utilcodex", version.ref = "blankj-utilcodex" }
@@ -88,6 +94,7 @@ android-svg = { module = "com.caverock:androidsvg-aar", version.ref = "android-s
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 
 # KotlinX
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
@@ -103,4 +110,5 @@ kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", vers
 
 [bundles]
 network-ktor = ["ktor-core", "ktor-client-cio", "ktor-kotlinx-serialization"]
+network-ktor-server = ["ktor-server-core", "ktor-server-netty", "ktor-server-content-negotiation", "ktor-kotlinx-serialization"]
 

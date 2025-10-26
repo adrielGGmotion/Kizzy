@@ -45,5 +45,8 @@ class Routes {
         /* About Screen */
         const val ABOUT = "about"
         const val CREDITS = "credits"
+
+        /* API Screen */
+        const val API = "api"
     }
 }
